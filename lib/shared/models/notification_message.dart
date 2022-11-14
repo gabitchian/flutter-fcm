@@ -1,51 +1,5 @@
 import 'dart:convert';
 
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart'
-    show TargetPlatform, defaultTargetPlatform, kIsWeb;
-import 'package:uuid/uuid.dart';
-
-class DefaultNotifications {
-  static NotificationMessage getNotification(RemoteMessage message) {
-    var uuid = Uuid();
-
-    if (kIsWeb) {
-      return NotificationMessage(
-        title: message.notification!.title,
-        description: message.notification!.body,
-        image: message.notification!.web!.image,
-        sentAt: message.sentTime,
-        id: message.messageId ?? uuid.v4().replaceAll('-', ''),
-        from: message.from,
-      );
-    }
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-        return NotificationMessage(
-          title: message.notification!.title,
-          description: message.notification!.body,
-          sentAt: message.sentTime,
-          id: message.messageId,
-          from: message.from,
-          image: message.notification!.android!.imageUrl,
-        );
-      case TargetPlatform.iOS:
-        return NotificationMessage(
-          title: message.notification!.title,
-          description: message.notification!.body,
-          sentAt: message.sentTime,
-          id: message.messageId,
-          from: message.from,
-          image: message.notification!.apple!.imageUrl,
-        );
-      default:
-        throw UnsupportedError(
-          'Notifications are not supported for this platform.',
-        );
-    }
-  }
-}
-
 class NotificationMessage {
   final String? id;
   final String? title;
