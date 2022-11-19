@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Configuration {
@@ -6,6 +7,8 @@ class Configuration {
   static String get messagingSenderId => _get('MESSAGING_SENDER_ID');
   static String get projectId => _get('PROJECT_ID');
   static String get storageBucket => _get('STORAGE_BUCKET');
+  static String get serverKey => _get('SERVER_KEY');
+  static String get notificationUrl => _get('NOTIFICATION_URL');
 
   // WEB FIREBASE CONFIGURATION
   static String get webApiKey => _get('WEB_API_KEY');

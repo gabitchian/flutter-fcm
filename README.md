@@ -34,14 +34,14 @@
   <br />
   ❌ [Android] Send notifications
   <br />
-  ❌ [Web] Send notifications
+  ✅ [Web] Send notifications
   <br />
   ❌ [IOS] Send notifications
   <br />
   <br />
   ❌ [Android] Save all notifications in a firebase database
   <br />
-  ❌ [Web] Save all notifications in a firebase database
+  ✅ [Web] Save all notifications in a firebase database before sending then
   <br />
   ❌ [IOS] Save all notifications in a firebase database
   <br /> 
