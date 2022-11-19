@@ -39,6 +39,10 @@ dependencies:
   overlay_support: ^2.1.0
   flutter_dotenv: ^5.0.2
   uuid: ^3.0.7
+  cloud_firestore: ^4.0.5
+  http: ^0.13.5
+  json_annotation: ^4.6.0
+  firebase_analytics: ^10.0.6
 
 dev_dependencies:
   flutter_test:

@@ -7,6 +7,7 @@ class NotificationMessage {
   final String? image;
   final String? from;
   final DateTime? sentAt;
+  final Map<String, dynamic>? data;
 
   NotificationMessage({
     required this.id,
@@ -15,23 +16,26 @@ class NotificationMessage {
     this.image,
     required this.from,
     required this.sentAt,
+    this.data,
   });
 
-  NotificationMessage copyWith({
-    String? id,
-    String? title,
-    String? description,
-    String? image,
-    String? from,
-    DateTime? sentAt,
-  }) {
+  NotificationMessage copyWith(
+      {String? id,
+      String? title,
+      String? description,
+      String? image,
+      String? from,
+      DateTime? sentAt,
+      Map<String, dynamic>? data}) {
     return NotificationMessage(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        description: description ?? this.description,
-        from: from ?? this.from,
-        sentAt: sentAt ?? this.sentAt,
-        image: image ?? this.image);
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      from: from ?? this.from,
+      sentAt: sentAt ?? this.sentAt,
+      image: image ?? this.image,
+      data: data ?? this.data,
+    );
   }
 
   Map<String, dynamic> toMap() {
@@ -42,6 +46,7 @@ class NotificationMessage {
       'from': from,
       'sent_at': sentAt,
       'image': image,
+      'data': data,
     };
   }
 
@@ -53,6 +58,7 @@ class NotificationMessage {
       from: map['from'],
       sentAt: map['sent_at'],
       image: map['image'],
+      data: map['data'],
     );
   }
 
@@ -63,7 +69,7 @@ class NotificationMessage {
 
   @override
   String toString() {
-    return 'NotificationMessage(id: $id, from: $from, sentAt: $sentAt, title: $title, description: $description, image: $image)';
+    return 'NotificationMessage(id: $id, from: $from, sentAt: $sentAt, title: $title, description: $description, image: $image, data: $data)';
   }
 
   @override
