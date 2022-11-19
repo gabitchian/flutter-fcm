@@ -2,6 +2,8 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_fcm/shared/configuration/configuration.dart';
 import 'package:flutter_fcm/shared/models/firebase_cloud_messaging/to.dart';
@@ -133,15 +135,23 @@ class _NotificationForm extends State<NotificationForm> {
                           ),
                         ),
                       ),
-                      if (_image.isNotEmpty)
-                        Padding(
-                          padding: EdgeInsets.only(left: 64),
-                          child: Container(
-                            // height: 64,
-                            width: 64,
-                            child: Image.network(_image),
-                          ),
+                      Padding(
+                        padding: EdgeInsets.only(left: kIsWeb ? 64 : 16),
+                        child: Container(
+                          // height: 64,
+                          width: kIsWeb ? 64 : 36,
+                          child: (_image.isNotEmpty)
+                              ? Image.network(_image)
+                              : Container(
+                                  color: Colors.black,
+                                  width: kIsWeb ? 64 : 36,
+                                  height: kIsWeb ? 64 : 36,
+                                  // decoration: BoxDecoration(
+                                  //   color: Colors.cyan[700],
+                                  // ),
+                                ),
                         ),
+                      ),
                     ],
                   ),
                   Padding(
@@ -149,19 +159,20 @@ class _NotificationForm extends State<NotificationForm> {
                     child: InkWell(
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 8,
+                            horizontal: 12,
+                            vertical: 12,
                           ),
-                          color: Colors.cyan,
+                          color: Colors.cyan[700],
                           child: const Text(
-                            "envia notificação",
+                            "Send notification",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                         onTap: () async {
-                          // ignore: avoid_print
-                          print("clicou");
                           await sendNotification();
-                          print("salvou");
                         }),
                   ),
                 ],

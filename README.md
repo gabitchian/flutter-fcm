@@ -32,14 +32,14 @@
   ❌ [IOS] Receive notifications while app in foreground or background
   <br />
   <br />
-  ❌ [Android] Send notifications
+  ✅ [Android] Send notifications
   <br />
   ✅ [Web] Send notifications
   <br />
   ❌ [IOS] Send notifications
   <br />
   <br />
-  ❌ [Android] Save all notifications in a firebase database
+  ✅ [Android] Save all notifications in a firebase database
   <br />
   ✅ [Web] Save all notifications in a firebase database before sending then
   <br />
