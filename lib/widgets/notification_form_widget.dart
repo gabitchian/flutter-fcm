@@ -146,9 +146,6 @@ class _NotificationForm extends State<NotificationForm> {
                                   color: Colors.black,
                                   width: kIsWeb ? 64 : 36,
                                   height: kIsWeb ? 64 : 36,
-                                  // decoration: BoxDecoration(
-                                  //   color: Colors.cyan[700],
-                                  // ),
                                 ),
                         ),
                       ),
